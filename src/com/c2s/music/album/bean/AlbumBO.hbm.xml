@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+
+		<class name="com.c2s.music.album.bean.AlbumBO" table="Albums">
+			<id name="Id" column="ALBUMID">
+				<generator class="sequence">
+					<param name="sequence">SEQ_ALBUM</param>
+				</generator>
+			</id>
+			<property name="albumTitle" column="ALBUMTITLE"></property>
+			<property name="yearReleased" column="YEARRELEASED"></property>
+			<property name="noOfSongs" column="NOOFSONGS"></property>
+			<property name="created" column="CRATED"></property>
+			<property name="noOfTimesPlayed" column="NOPLAYED"></property>
+			<property name="noOfTimesDownloaded" column="NODOWNLOADED"></property>
+			<property name="keyTagId" column="KEYTAGID"></property>
+			<property name="albumCategoryId" column="ALBUMCATEGORYID"></property>
+		</class>
+
+</hibernate-mapping>

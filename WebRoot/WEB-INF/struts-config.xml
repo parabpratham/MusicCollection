@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== DataSource Definitions =================================== -->
+	<data-sources></data-sources>
+
+	<form-beans>
+		<form-bean name="loginForm"
+			type="com.c2s.music.login.form.LoginForm" />
+		<form-bean name="albumForm"
+			type="com.c2s.music.album.form.AlbumForm" />
+		<form-bean name="userForm"
+			type="com.c2s.music.user.form.UserForm" />
+		<form-bean name="albumSearchForm"
+			type="com.c2s.music.album.form.AlbumSearchForm">
+		</form-bean>
+	</form-beans>
+
+	<global-exceptions>
+		<exception bundle="ApplicationResources"
+			key="error.RuntimeException" path="/Error.jsp"
+			type="javax.servlet.ServletException" />
+		<exception bundle="ApplicationResources"
+			key="error.RuntimeException" path="/Error.jsp"
+			type="org.apache.struts.util.ModuleException" />
+		<exception bundle="ApplicationResources"
+			key="error.RuntimeException" path="/Error.jsp"
+			type="java.lang.RuntimeException" />
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="ErrorPage" path="/error.jsp" redirect="true" />
+	</global-forwards>
+
+	<action-mappings>
+
+		<action path="/login"
+			type="com.c2s.music.login.action.LoginAction" name="loginForm"
+			scope="request" input="/Jsp/Base/cssskeleton.jsp" validate="false"
+			parameter="method">
+			<forward name="success" path="/home.do?method=homePageList" />
+			<forward name="join" path="/Jsp/Login/join.jsp" />
+		</action>
+
+		<action path="/join" type="com.c2s.music.login.UserAction"
+			name="userForm" scope="request" input="/Jsp/Base/cssskeleton.jsp"
+			validate="false" parameter="method">
+			<forward name="cancel" path="/Jsp/Base/cssskeleton.jsp" />
+			<forward name="failure" path="/Jsp/Login/join.jsp" />
+			<forward name="success" path="/Jsp/Login/welcome.jsp" />
+		</action>
+
+		<action path="/home"
+			type="com.c2s.music.album.action.AlbumListAction"
+			name="albumSearchForm" scope="request"
+			input="/Jsp/Base/cssskeleton.jsp" validate="false"
+			parameter="method">
+			<forward name="logoff" path="/logoff.do" />
+			<forward name="newalbum" path="/album.do?method=viewAlbum" />
+			<forward name="success" path="/Jsp/Base/cssskeleton.jsp" />
+		</action>
+
+		<action path="/album"
+			type="com.c2s.music.album.action.AlbumAction" name="albumForm"
+			scope="request" input="/Jsp/Base/Album/album.jsp" validate="false"
+			parameter="method">
+			<forward name="success" path="/home.do?method=homePageList" />
+			<forward name="new" path="/Jsp/Albums/addAlbum.jsp" />
+			<forward name="view" path="/Jsp/Albums/viewalbum.jsp" />
+		</action>
+	</action-mappings>
+
+	<!-- ========== Controller Definition =========================== -->
+	<controller
+		processorClass="com.c2s.music.startup.CustomRequestProcessor" />
+
+	<message-resources parameter="ApplicationResources" />
+
+	<plug-in className="com.c2s.music.startup.StartupManager" />
+
+</struts-config>
+

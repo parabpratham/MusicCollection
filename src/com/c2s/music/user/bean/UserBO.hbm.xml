@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+
+	<class name="com.c2s.music.user.bean.UserBO" table="users">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">SEQ_USER</param>
+			</generator>
+		</id>
+		<property name="firstName" column="FIRST_NAME"></property>
+		<property name="lastName" column="Last_NAME"></property>
+		<property name="userName" column="USERNAME"></property>
+		<property name="password" column="PASSWD"></property>
+		<property name="created" column="created"></property>
+		<property name="lastLogin" column="lastLogin"></property>
+		<property name="numberOfTimeLogin" column="numlogins"></property>
+		<property name="email" column="EMAIL"></property>
+	</class>
+
+	<class name="com.c2s.music.user.bean.UserPlayListBO" table="userplyalist">
+		<id name="id" column="playlistid">
+			<generator class="sequence">
+				<param name="sequence">SEQ_USERPLAYLIST</param>
+			</generator>
+		</id>
+		<property name="created" column="created"></property>
+		<many-to-one name="userBO" column="userid"
+			class="com.c2s.music.user.bean.UserBO" not-null="true" />
+		<many-to-one name="songBO" column="songId"
+			class="com.c2s.music.song.bean.SongBO" not-null="true" />
+		<property name="tranckNO" column="trackno"></property>
+		<property name="isAvailable" column="ISREMOVED"></property>
+	</class>
+	
+</hibernate-mapping>

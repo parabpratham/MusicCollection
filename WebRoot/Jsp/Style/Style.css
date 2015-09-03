@@ -1,0 +1,173 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	padding: 0px;
+	background: #FFF;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+.div-table {
+	display: table;
+	border: 1px solid #666666;
+}
+
+.div-table-row {
+	display: table-row;
+	clear: both;
+}
+
+.div-table-col {
+	float: left; /*fix for  buggy browsers*/
+	display: table-column;
+	margin: 5px;
+}
+
+#top_b_d {
+	background: #FFF; <!--
+	border: 1px dashed #333;
+	height: 64px;
+	width: 1600px;
+	-->
+}
+
+#top_b_d_logo_img img {
+	margin-bottom: 1em;
+	height: 64px;
+}
+
+#top_b_d_user {
+	float: right;
+	margin: 0;
+	line-height: .7em;
+	font: bold .7em/ 1.7em Arial, Geneva, sans-serif;
+	color: gray;
+	left: 1325px;
+	top: 10px;
+	width: 38em;
+	height: 64px;
+	position: fixed;
+}
+
+.login_table {
+	width: 38em;
+	height: 64px;
+}
+
+#cont_bo_d {
+	position: inherit;
+}
+
+.strip {
+	padding: 5px;
+	width: inherit;
+}
+
+#cont_bo_rtb_d {
+	float: right;
+	margin: 0;
+	line-height: 2em;
+	width: 300px;
+	top: 80px;
+	left: 1450px;
+	position: fixed;
+	border: dotted;
+	height: 1000px;
+}
+
+#cont_bo_ltb_d {
+	float: left;
+	margin: 0;
+	line-height: 2em;
+	top: 80px;
+	width: 300px;
+	position: absolute;
+	border: dotted;
+	height: 1000px;
+}
+
+#cont_bo_main_d {
+	top: 80px;
+	left: 550px;
+	position: absolute;
+	border: dotted;
+	width: 800px;
+	height: 1000px;
+}
+
+#footer_d {
+	text-align: center;
+	top: 1100px;
+	position: absolute; width = 1500 px;
+	border: dotted;
+}
+
+.albuum_thumb {width = 140px;height =100px;
+	
+}
+
+#songlist {
+	margin: 50px;
+}
+
+.songtitle {
+	
+}
+
+.songartist {
+	margin: 5px;
+	color: red;
+	font-size: 10px;
+}
+
+.songtrackno {
+	margin: 5px;
+}
+
+#cont_bo_ltb_player_d {
+	position: fixed;
+	margin: 0;
+	top: 500px;
+	right: 150px;
+	border: dotted;
+	width: 300 px;
+	height: 500 px;
+}
+
+#cont_bo_ltb_playlist_d {
+	position: fixed;
+	top: 500px;
+	right: 150px;
+	height: 250 px;
+	width: 300 px;
+	max-height: 300 px;
+	overflow: scroll;
+	border: dotted;
+}
+
+#cont_bo_ltb_playlist_item_d {
+	height: 250 px;
+	width: 300 px;
+	width: 300 px;
+	max-height: 250 px;
+	overflow-y: auto;
+	border: medium;
+}
+
+#cont_bo_ltb_playlist_item_ol {
+	height: 250 px;
+	width: 300 px;
+	max-height: 250 px;
+	overflow: hidden;
+	border: dotted;
+}
+
+#cont_bo_ltb_playerwindow_d {
+	position: fixed;
+	top: 750px;
+	right: 150px;
+	height: 250 px;
+	width: 300 px;
+	border: dotted;
+	visibility: hidden;
+}

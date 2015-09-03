@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+
+	<class name="com.c2s.music.song.bean.SongBO" table="SONGS">
+		<id name="Id" column="SONGID">
+			<generator class="sequence">
+				<param name="sequence">SEQ_SONGS</param>
+			</generator>
+		</id>
+		<property name="songTitle" column="SONG_TITLE"></property>
+		<!--  <property name="albumId" column="ALBUMID"></property>-->
+		<many-to-one name="album" column="albumId"
+			class="com.c2s.music.album.bean.AlbumBO" not-null="true" />
+		<property name="artist" column="ARTIST"></property>
+		<property name="composer" column="COMPOSER"></property>
+		<property name="yearReleased" column="YEARRELEASED"></property>
+		<many-to-one name="genre"
+			class="com.c2s.music.song.bean.GenreBO" column="genreId" />
+		<property name="lyrics" column="LYRICS"></property>
+		<property name="trackNoInAlbum" column="TRACKNOONALBUM"></property>
+		<property name="frameCount" column="FRAMECOUNT"></property>
+		<property name="fileSize" column="FILESIZE"></property>
+		<property name="bitRate" column="BITRATE"></property>
+		<property name="frequency" column="FREQUENCY"></property>
+		<property name="id3v1Tag" column="ID3V1TAG"></property>
+		<property name="id3v2Tag" column="ID3V2TAG"></property>
+		<property name="created" column="CRATED"></property>
+		<property name="noOfTimesPlayed" column="NOPLAYED"></property>
+		<property name="keyTagId" column="KEYTAGID"></property>
+		<property name="songCategoryId" column="SONGCATEGORYID"></property>
+		<property name="songFilePath" column="songFilePath"></property>
+	</class>
+
+	<class name="com.c2s.music.song.bean.GenreBO" table="GENRE">
+		<id name="code" column="CODE"></id>
+		<property name="genreValue" column="GENREVALUE"></property>
+	</class>
+
+</hibernate-mapping>
